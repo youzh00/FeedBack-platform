@@ -3,7 +3,7 @@ import FeedBackitem from './FeedBackitem'
 
 
 ///////////////////////
-export default function FeedbackList({feedback}) {
+export default function FeedbackList({feedback,deleteItem}) {
     if(!feedback || feedback.length===0){
         return <p>No feedbacks yet</p>
     }
@@ -11,7 +11,7 @@ export default function FeedbackList({feedback}) {
       
     <div className='feedback-list'>
         {feedback.map((item)=>(
-                <FeedBackitem item={item} key={item.id}/>
+                <FeedBackitem item={item} key={item.id} handleDelete={()=>deleteItem(item.id)}/>
                 
         ))}
         </div>
