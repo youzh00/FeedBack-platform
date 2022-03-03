@@ -12,6 +12,10 @@ body {
   color: #000;
   line-height: 1.6;
 }
+.feedbackitem {
+  width: 80%;
+  margin: auto;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -58,4 +62,8 @@ header {
   right: 20px;
   top: 20px;
   cursor: pointer;
+}
+.feedback-stat {
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import FeedBackitem from './FeedBackitem'
+import '../index.css'
 
 
 ///////////////////////
