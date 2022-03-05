@@ -8,6 +8,7 @@ import FeedbackData from "./data/FeedbackData";
 import FeedBackStat from "./Component/FeedBackStat";
 import FeedBackForm from "./Component/FeedBackForm";
 import AboutPage from "./Pages/AboutPage";
+import AboutIconLink from "./Component/AboutIconLink";
 
 //////////////////////////////
 export default function App() {
@@ -37,9 +38,7 @@ export default function App() {
                 <FeedBackForm handleAddFB={(newFB) => addNewFeedBack(newFB)} />
                 <FeedBackStat feedback={feedback} />
                 <FeedBackList feedback={feedback} deleteItem={deleteItem} />
-                <div>
-                  <a href="/About">About</a>
-                </div>
+                <AboutIconLink />
               </>
             }
           ></Route>

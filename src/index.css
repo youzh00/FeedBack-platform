@@ -169,3 +169,19 @@ form div {
   background: #ff6a95;
   color: #fff;
 }
+.about-link {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+.about-link:hover {
+  color: #ff6a95;
+}
+.about-link a {
+  color: #fff;
+  cursor: pointer;
+}
+
+.about-link a:hover {
+  color: #ff6a95;
+}
