@@ -35,7 +35,7 @@ export default function FeedBackForm({handleAddFB}) {
         rating
       }
       handleAddFB(newFeedBack)
-      setText('')
+      e.target.input.value=''
     }
   }
   return (
@@ -44,7 +44,7 @@ export default function FeedBackForm({handleAddFB}) {
             <div><h2>How Would you rate your service with us</h2></div>
             <RatingSelect select={(rating)=>setRating(rating)}/>
             <div className='input-group'>
-                <input type="text" placeholder='write a review' onChange={(e)=>handleChange(e)}/>
+                <input type="text" placeholder='write a review' name='input' onChange={(e)=>handleChange(e)}/>
                 <Button type={'text'} children={'Send'} isDisabled={isDisabled}/>
             </div>
             <div><p>{message}</p></div>
