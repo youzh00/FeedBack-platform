@@ -1,7 +1,12 @@
 import React from 'react'
 import '../index.css'
+import { useContext } from 'react'
+import FeedbackContext from '../Context/FeedbackContext'
+//////////////////////////////
 
-export default function FeedBackStat({feedback}) {
+export default function FeedBackStat() {
+  const {feedback}=useContext(FeedbackContext)  
+
     const length=feedback.length
     let Average=feedback.reduce((a, b) => a + b.rating, 0)/length;
     Average=Average.toFixed(1)

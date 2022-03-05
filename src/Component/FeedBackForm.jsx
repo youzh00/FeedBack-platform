@@ -4,9 +4,14 @@ import '../index.css'
 import Button from './shared/Button'
 import { useState } from 'react'
 import RatingSelect from './RatingSelect'
+import { useContext } from 'react'
+import FeedbackContext from '../Context/FeedbackContext'
 
 ////////////////////////////
-export default function FeedBackForm({handleAddFB}) {
+export default function FeedBackForm() {
+  const {addNewFeedBack}=useContext(FeedbackContext)
+
+
   const [text,setText]=useState('')
   const [isDisabled,setIsDisabled]=useState(true)
   const [message,setMessage]=useState('')
@@ -34,7 +39,7 @@ export default function FeedBackForm({handleAddFB}) {
         text,
         rating
       }
-      handleAddFB(newFeedBack)
+      addNewFeedBack(newFeedBack)
       e.target.input.value=''
     }
   }
