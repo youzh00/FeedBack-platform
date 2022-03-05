@@ -6,7 +6,7 @@ import { useState } from 'react'
 import RatingSelect from './RatingSelect'
 
 ////////////////////////////
-export default function FeedBackForm() {
+export default function FeedBackForm({handleAddFB}) {
   const [text,setText]=useState('')
   const [isDisabled,setIsDisabled]=useState(true)
   const [message,setMessage]=useState('')
@@ -27,11 +27,20 @@ export default function FeedBackForm() {
     }
     setText(e.target.value)
   }
-
-  console.log(rating)
+  function submitForm(e){
+    e.preventDefault()
+    if(text.trim().length>10){
+      const newFeedBack={
+        text,
+        rating
+      }
+      handleAddFB(newFeedBack)
+      setText('')
+    }
+  }
   return (
     <Card>
-        <form >
+        <form onSubmit={submitForm}>
             <div><h2>How Would you rate your service with us</h2></div>
             <RatingSelect select={(rating)=>setRating(rating)}/>
             <div className='input-group'>
