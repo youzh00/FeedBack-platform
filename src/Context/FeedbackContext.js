@@ -17,9 +17,10 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedback = async () => {
-    const response = await fetch("http://localhost:5000/feedback");
+    const response = await fetch("/feedback?_sort=id&_order=desc");
     const data = await response.json();
     setFeedback(data);
+    console.log(data);
   };
 
   const deleteItem = (idd) => {
@@ -30,10 +31,17 @@ export const FeedbackProvider = ({ children }) => {
     );
   };
 
-  function addNewFeedBack(newFB) {
-    newFB.id = uuidv4();
-    setFeedback([newFB, ...feedback]);
-  }
+  const addNewFeedBack = async (newFB) => {
+    const response = await fetch("/feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newFB),
+    });
+    const data = await response.json();
+    setFeedback([data, ...feedback]);
+  };
 
   const updateFeedback = (item) => {
     console.log("updateFeedBack function");

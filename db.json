@@ -1,24 +1,19 @@
 {
   "feedback": [
     {
-      "id": 1,
-      "rating": 10,
-      "text": "This is data 1 comming from back-end"
+      "text": "such a good app ",
+      "rating": 6,
+      "id": 6
     },
     {
-      "id": 2,
-      "rating": 8,
-      "text": "This is data 2 comming from back-end"
+      "text": "data from UI",
+      "rating": 6,
+      "id": 7
     },
     {
-      "id": 3,
-      "rating": 7.5,
-      "text": "This is data 3 comming from back-end"
-    },
-    {
-      "rating": "7",
-      "text": "data from postMan",
-      "id": 5
+      "text": "data 2 from UI",
+      "rating": 2,
+      "id": 8
     }
   ]
 }
