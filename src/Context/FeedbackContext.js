@@ -53,15 +53,24 @@ export const FeedbackProvider = ({ children }) => {
       edit: true,
     });
   };
-  const replaceFeedback = (item, id) => {
+  const replaceFeedback = async (item, id) => {
     console.log("replaceFeedBack function");
+    console.log(item);
+    const response = await fetch(`/feedback/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(item),
+    });
+    const data = await response.json();
 
     setFeedback(
       feedback.map((fb) => {
         return fb.id === id
           ? {
               ...fb,
-              ...item,
+              ...data,
             }
           : fb;
       })
