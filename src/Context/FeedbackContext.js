@@ -23,7 +23,10 @@ export const FeedbackProvider = ({ children }) => {
     console.log(data);
   };
 
-  const deleteItem = (idd) => {
+  const deleteItem = async (idd) => {
+    await fetch(`/feedback/${idd}`, {
+      method: "DELETE",
+    });
     setFeedback(
       feedback.filter((item) => {
         return item.id !== idd;
