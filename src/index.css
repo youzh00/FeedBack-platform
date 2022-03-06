@@ -100,9 +100,6 @@ input:focus {
   background-color: #202142;
 }
 
-.btn-secondary {
-  background: #ff6a95;
-}
 .btn:hover {
   transform: scale(0.98);
   opacity: 0.9;
