@@ -185,3 +185,11 @@ form div {
 .about-link a:hover {
   color: #ff6a95;
 }
+.edit {
+  position: absolute;
+  top: 16px;
+  right: 40px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}

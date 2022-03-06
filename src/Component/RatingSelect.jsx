@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import '../index.css'
+import { useContext } from 'react'
+import FeedbackContext from '../Context/FeedbackContext'
 ///////////////////////////
 export default function RatingSelect({select}) {
     const [selected,setSelected]=useState();
@@ -8,6 +10,13 @@ export default function RatingSelect({select}) {
         setSelected(+e.currentTarget.value)
         select(+e.currentTarget.value)
     }
+    const {updateFB}=useContext(FeedbackContext)
+
+    useEffect(()=>{
+        setSelected(updateFB.item.rating)
+        console.log('rating')
+    },[updateFB])
+
   return (
     <div>
       <ul className='rating'>

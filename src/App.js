@@ -12,8 +12,6 @@ import { FeedbackProvider } from "./Context/FeedbackContext";
 
 //////////////////////////////
 export default function App() {
-  console.log(FeedbackProvider);
-
   return (
     <FeedbackProvider>
       <Router>
