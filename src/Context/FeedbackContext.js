@@ -16,10 +16,9 @@ export const FeedbackProvider = ({ children }) => {
       rating: 6,
     },
   ]);
-
   const [updateFB, setUpdateFB] = useState({
     item: {},
-    edit: true,
+    edit: false,
   });
 
   const deleteItem = (idd) => {
@@ -36,10 +35,26 @@ export const FeedbackProvider = ({ children }) => {
   }
 
   const updateFeedback = (item) => {
+    console.log("updateFeedBack function");
     setUpdateFB({
       item,
       edit: true,
     });
+  };
+  const replaceFeedback = (item, id) => {
+    console.log("replaceFeedBack function");
+
+    setFeedback(
+      feedback.map((fb) => {
+        return fb.id === id
+          ? {
+              ...fb,
+              ...item,
+            }
+          : fb;
+      })
+    );
+    updateFB.edit = false;
   };
 
   return (
@@ -50,6 +65,7 @@ export const FeedbackProvider = ({ children }) => {
         addNewFeedBack,
         updateFeedback,
         updateFB,
+        replaceFeedback,
       }}
     >
       {children}

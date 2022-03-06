@@ -14,7 +14,6 @@ export default function RatingSelect({select}) {
 
     useEffect(()=>{
         setSelected(updateFB.item.rating)
-        console.log('rating')
     },[updateFB])
 
   return (

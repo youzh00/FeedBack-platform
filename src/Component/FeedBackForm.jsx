@@ -9,7 +9,7 @@ import FeedbackContext from '../Context/FeedbackContext'
 
 ////////////////////////////
 export default function FeedBackForm() {
-  const {addNewFeedBack, updateFB}=useContext(FeedbackContext)
+  const {addNewFeedBack, updateFB,replaceFeedback}=useContext(FeedbackContext)
 
 
   const [text,setText]=useState('')
@@ -22,16 +22,14 @@ export default function FeedBackForm() {
       setText(updateFB.item.text)
       setRating(updateFB.item.rating)
       setIsDisabled(false)
-      console.log('scsd')
-    }
+          }
     },[updateFB])
 
-
-  function handleChange(e){
-    if(e.target.value===''){
+  function handleChange({target:{value}}){
+    if(value===''){
       setIsDisabled(true)
       setMessage(null)
-    }else if(e.target.value.trim().length<10 && e.target.value!==''){
+    }else if(value.trim().length<10 && value!==''){
       setMessage('Text must be at least 10 characters')
       setIsDisabled(true)
 
@@ -40,18 +38,28 @@ export default function FeedBackForm() {
       setIsDisabled(false)
 
     }
-    setText(e.target.value)
+    setText(value)
   }
  
   function submitForm(e){
+    console.log('submited')
     e.preventDefault()
     if(text.trim().length>10){
       const newFeedBack={
         text,
         rating
       }
-      addNewFeedBack(newFeedBack)
-      e.target.input.value=''
+      if(updateFB.edit){
+        replaceFeedback(newFeedBack,updateFB.item.id)
+        setText('')
+      }
+      else{
+        addNewFeedBack(newFeedBack) 
+        setText('')
+
+      }
+      // // addNewFeedBack(newFeedBack)
+      // e.target.input.value=''
     }
   }
  
@@ -61,7 +69,7 @@ export default function FeedBackForm() {
             <div><h2>How Would you rate your service with us</h2></div>
             <RatingSelect select={(rating)=>setRating(rating)}/>
             <div className='input-group'>
-                <input type="text" placeholder='write a review' name='input' onChange={(e)=>handleChange(e)}/>
+                <input type="text" placeholder='write a review' name='input' onChange={handleChange} value={text}/>
                 <Button type={'text'} children={'Send'} isDisabled={isDisabled}/>
             </div>
             <div><p>{message}</p></div>
