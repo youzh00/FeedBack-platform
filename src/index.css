@@ -193,3 +193,8 @@ form div {
   background: none;
   border: none;
 }
+.spinner img {
+  width: 100px;
+  margin: auto;
+  display: block;
+}
